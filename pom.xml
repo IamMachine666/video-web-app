@@ -8,13 +8,13 @@
         <version>2.6.2</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>io.john.amiscaray</groupId>
+    <groupId>org.videosharing</groupId>
     <artifactId>video-sharing-demo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>video-sharing-demo</name>
     <description>video-sharing-demo</description>
     <properties>
-        <java.version>11</java.version>
+        <java.version>19</java.version>
     </properties>
     <dependencies>
         <dependency>
