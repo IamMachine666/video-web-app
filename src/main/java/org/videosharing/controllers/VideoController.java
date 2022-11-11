@@ -8,6 +8,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.videosharing.domain.Video;
 import org.videosharing.services.VideoService;
 
 import java.io.IOException;
@@ -41,7 +42,7 @@ public class VideoController {
     }
 
     @GetMapping("all")
-    public ResponseEntity<List<String>> getAllVideoNames(){
+    public ResponseEntity<List<Video>> getAllVideoNames(){
 
         return ResponseEntity
                 .ok(videoService.getAllVideoNames());

@@ -26,7 +26,7 @@ public class VideoServiceImpl implements VideoService {
     }
 
     @Override
-    public List<String> getAllVideoNames() {
+    public List<Video> getAllVideoNames() {
         return repo.getAllEntryNames();
     }
 
