@@ -20,7 +20,7 @@ public class MainPageController {
     public ModelAndView index() {
         HashMap<String, Object> model = new HashMap<>();
         model.put("videos", videoService.getAllVideoNames());
-        return new ModelAndView("index", model);
+        return new ModelAndView("index_old", model);
     }
 
     @GetMapping(value = "/upload")
