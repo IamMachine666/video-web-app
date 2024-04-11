@@ -13,8 +13,8 @@ fetch('http://localhost/video/all')
             for(let vid of result){
                 const li = document.createElement('LI');
                 const link = document.createElement('A');
-                link.innerText = vid;
-                link.href = window.location.origin + window.location.pathname + '?video=' + vid;
+                link.innerText = vid.name;
+                link.href = window.location.origin + window.location.pathname + '?video=' + vid.name;
                 li.appendChild(link);
                 myVids.appendChild(li);
             }
