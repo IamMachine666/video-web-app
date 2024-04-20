@@ -9,9 +9,11 @@ import javax.persistence.*;
 @Data
 @NoArgsConstructor
 //todo add category, tags
+@Table(name = "videos")
 public class VideoModel {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "videos_generator")
+    @SequenceGenerator(name = "videos_generator", sequenceName = "s_videos", allocationSize = 1)
     private Long id;
 
     @Column(unique = true)

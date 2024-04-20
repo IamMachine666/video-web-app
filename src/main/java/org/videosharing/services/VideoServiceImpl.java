@@ -28,6 +28,7 @@ public class VideoServiceImpl implements VideoService {
     }
 
     @Override
+    @Transactional
     public List<VideoModel> getAllVideoNames() {
         return repo.getAllEntryNames();
     }
