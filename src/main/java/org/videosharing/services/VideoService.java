@@ -1,15 +1,15 @@
 package org.videosharing.services;
 
 import org.springframework.web.multipart.MultipartFile;
-import org.videosharing.domain.Video;
+import org.videosharing.domain.VideoModel;
 
 import java.io.IOException;
 import java.util.List;
 
 public interface VideoService {
-    Video getVideo(String name);
+    VideoModel getVideo(String name);
 
     void saveVideo(MultipartFile file, String name) throws IOException;
 
-    List<Video> getAllVideoNames();
+    List<VideoModel> getAllVideoNames();
 }

@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
-import org.videosharing.domain.Video;
+import org.videosharing.domain.VideoModel;
 import org.videosharing.exceptions.VideoAlreadyExistsException;
 import org.videosharing.exceptions.VideoNotFoundException;
 import org.videosharing.repo.VideoRepo;
@@ -20,7 +20,7 @@ public class VideoServiceImpl implements VideoService {
 
     @Override
     @Transactional
-    public Video getVideo(String name) {
+    public VideoModel getVideo(String name) {
         if (!repo.existsByName(name)) {
             throw new VideoNotFoundException();
         }
@@ -28,7 +28,7 @@ public class VideoServiceImpl implements VideoService {
     }
 
     @Override
-    public List<Video> getAllVideoNames() {
+    public List<VideoModel> getAllVideoNames() {
         return repo.getAllEntryNames();
     }
 
@@ -38,7 +38,7 @@ public class VideoServiceImpl implements VideoService {
         if (repo.existsByName(name)) {
             throw new VideoAlreadyExistsException();
         }
-        Video newVid = new Video(name, file.getBytes());
+        VideoModel newVid = new VideoModel(name, file.getBytes());
         repo.save(newVid);
     }
 

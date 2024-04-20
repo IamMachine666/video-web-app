@@ -8,7 +8,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import org.videosharing.domain.Video;
+import org.videosharing.domain.VideoModel;
 import org.videosharing.services.VideoService;
 
 import java.io.IOException;
@@ -42,7 +42,7 @@ public class VideoController {
 
     @GetMapping("all")
     //todo replace response entity with dto instead of domain db object
-    public ResponseEntity<List<Video>> getAllVideoNames() {
+    public ResponseEntity<List<VideoModel>> getAllVideoNames() {
         //todo replace method with sorting and pagination for index page
         return ResponseEntity
                 .ok(videoService.getAllVideoNames());

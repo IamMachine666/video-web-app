@@ -8,7 +8,8 @@ import javax.persistence.*;
 @Entity
 @Data
 @NoArgsConstructor
-public class Video {
+//todo add category, tags
+public class VideoModel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -21,7 +22,7 @@ public class Video {
     private byte[] data;
 
     //todo replace with lombok builder
-    public Video(String name, byte[] data) {
+    public VideoModel(String name, byte[] data) {
         this.name = name;
         this.data = data;
     }

@@ -4,12 +4,11 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.web.multipart.MultipartFile;
-import org.videosharing.domain.Video;
+import org.videosharing.domain.VideoModel;
 import org.videosharing.repo.VideoRepo;
 
 import javax.transaction.Transactional;
 import java.io.IOException;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -28,9 +27,9 @@ public class VideoServiceImplIT {
 
     @Test
     void getVideo() {
-        Video expected = new Video(testName, null);
+        VideoModel expected = new VideoModel(testName, null);
         repo.save(expected);
-        Video actual = service.getVideo(testName);
+        VideoModel actual = service.getVideo(testName);
         // The result from service.getVideo(testName) should be expected Video instance above
         assertEquals(expected, actual);
     }
