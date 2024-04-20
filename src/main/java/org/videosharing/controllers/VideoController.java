@@ -24,16 +24,15 @@ public class VideoController {
     // Each parameter annotated with @RequestParam corresponds to a form field where the String argument is the name of the field
     @PostMapping()
     public ResponseEntity<String> saveVideo(@RequestParam("file") MultipartFile file, @RequestParam("name") String name) throws IOException {
-
+        //todo hide upload to admin page, require authentication
         videoService.saveVideo(file, name);
+        //todo check out if ok response is json
         return ResponseEntity.ok("Video saved successfully.");
-
     }
 
     // {name} is a path variable in the url. It is extracted as the String parameter annotated with @PathVariable
     @GetMapping("{name}")
-    public ResponseEntity<Resource> getVideoByName(@PathVariable("name") String name){
-
+    public ResponseEntity<Resource> getVideoByName(@PathVariable("name") String name) {
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .contentType(MediaType.APPLICATION_OCTET_STREAM)
@@ -42,8 +41,9 @@ public class VideoController {
     }
 
     @GetMapping("all")
-    public ResponseEntity<List<Video>> getAllVideoNames(){
-
+    //todo replace response entity with dto instead of domain db object
+    public ResponseEntity<List<Video>> getAllVideoNames() {
+        //todo replace method with sorting and pagination for index page
         return ResponseEntity
                 .ok(videoService.getAllVideoNames());
 

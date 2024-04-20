@@ -12,17 +12,9 @@ import java.util.HashMap;
 @AllArgsConstructor
 public class MainPageController {
 
-    private VideoService videoService;
-
     @GetMapping(value = "/")
     public ModelAndView index() {
-        HashMap<String, Object> model = new HashMap<>();
-        model.put("videos", videoService.getAllVideoNames());
-        return new ModelAndView("index", model);
-    }
-
-    @GetMapping(value = "/upload")
-    public ModelAndView upload() {
+        //todo move upload to admin panel, video view to another page
         return new ModelAndView("index");
     }
 }
