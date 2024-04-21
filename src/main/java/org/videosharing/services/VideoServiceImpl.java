@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 import org.videosharing.domain.VideoModel;
+import org.videosharing.dto.VideoInfoDto;
 import org.videosharing.exceptions.VideoAlreadyExistsException;
 import org.videosharing.exceptions.VideoNotFoundException;
 import org.videosharing.repo.VideoRepo;
@@ -29,8 +30,12 @@ public class VideoServiceImpl implements VideoService {
 
     @Override
     @Transactional
-    public List<VideoModel> getAllVideoNames() {
-        return repo.getAllEntryNames();
+    public List<VideoInfoDto> getAllVideoNames() {
+        return repo.getAllEntryNames().stream().map(v -> VideoInfoDto.builder()
+                .id(v.getId())
+                .name(v.getName())
+                .build())
+                .toList();
     }
 
     @Override

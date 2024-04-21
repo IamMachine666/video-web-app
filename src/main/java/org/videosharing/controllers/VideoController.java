@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.videosharing.domain.VideoModel;
+import org.videosharing.dto.VideoInfoDto;
 import org.videosharing.services.VideoService;
 
 import java.io.IOException;
@@ -31,7 +32,7 @@ public class VideoController {
     }
 
     // {name} is a path variable in the url. It is extracted as the String parameter annotated with @PathVariable
-    @GetMapping("{name}")
+    @GetMapping("/{name}")
     public ResponseEntity<Resource> getVideoByName(@PathVariable("name") String name) {
         return ResponseEntity
                 .status(HttpStatus.OK)
@@ -40,9 +41,9 @@ public class VideoController {
 
     }
 
-    @GetMapping("all")
+    @GetMapping()
     //todo replace response entity with dto instead of domain db object
-    public ResponseEntity<List<VideoModel>> getAllVideoNames() {
+    public ResponseEntity<List<VideoInfoDto>> getAllVideoNames() {
         //todo replace method with sorting and pagination for index page
         return ResponseEntity
                 .ok(videoService.getAllVideoNames());

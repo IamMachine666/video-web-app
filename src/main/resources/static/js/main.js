@@ -4,7 +4,7 @@ const videoScreen = document.querySelector('#video-screen');
 
 const queryParams = Object.fromEntries(new URLSearchParams(window.location.search));
 
-fetch('http://localhost/video/all')
+fetch('http://localhost/video')
     .then(result => result.json())
     .then(result => {
 
